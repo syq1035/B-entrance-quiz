@@ -4,15 +4,22 @@ import com.thoughtworks.capability.gtb.entrancequiz.entity.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service
 public class StudentService {
 
     private List<Student> students;
+    private ArrayList<ArrayList<Student>> groups;
 
     public StudentService() {
         students = new ArrayList<>();
+        groups = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            groups.add(new ArrayList<Student>());
+        }
         initStudents();
     }
 
@@ -57,5 +64,22 @@ public class StudentService {
     public void add(Student student) {
         student.setId(students.size() + 1);
         students.add(student);
+    }
+
+    public ArrayList<ArrayList<Student>> groups() {
+        groups = null;
+        ArrayList<Student> studentArrayList = new ArrayList<>(this.students);
+        Collections.shuffle(studentArrayList);
+        groups = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            groups.add(new ArrayList<Student>());
+        }
+        int flag = 0;
+        for(Student student: studentArrayList) {
+            groups.get(flag).add(student);
+            flag ++;
+            flag = flag >= 6 ? 0 : flag;
+        }
+        return this.groups;
     }
 }
