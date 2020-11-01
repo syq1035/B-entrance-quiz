@@ -1,5 +1,6 @@
 package com.thoughtworks.capability.gtb.entrancequiz.controller;
 
+import com.thoughtworks.capability.gtb.entrancequiz.entity.Group;
 import com.thoughtworks.capability.gtb.entrancequiz.entity.Student;
 import com.thoughtworks.capability.gtb.entrancequiz.service.StudentService;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class StudentController {
     }
 
     @GetMapping("/groups")
-    public ResponseEntity<ArrayList<ArrayList<Student>>> groupStudents() {
-        return ResponseEntity.ok(studentService.groups());
+    public ResponseEntity<List<Group>> groupingStudents() {
+        return ResponseEntity.ok(studentService.grouping());
     }
 }

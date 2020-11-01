@@ -3,7 +3,6 @@ package com.thoughtworks.capability.gtb.entrancequiz.entity;
 public class Student {
     private Integer id;
     private String name;
-    private Integer groupId;
 
     public Student(Integer id, String name) {
         this.id = id;
@@ -26,11 +25,4 @@ public class Student {
         this.name = name;
     }
 
-    public Integer getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
-    }
 }
