@@ -11,9 +11,10 @@ import java.util.List;
 
 @Service
 public class StudentService {
-
+    //TODO GTB-知识点: - StudentService.java:14 数据存储相关的操作，不属于service的职责，应该抽取repository层做
     private List<Student> students;
     private List<Group> groups;
+    //TODO GTB-工程实践: + StudentService.java:17 有意识抽取变量
     private Integer GROUP_SIZE = 6;
 
     public StudentService() {
@@ -53,6 +54,7 @@ public class StudentService {
     }
 
     public void add(Student student) {
+        //TODO GTB-工程实践: - StudentService.java:57 这种自增id的方式，线程不安全，试试AtomicInteger
         student.setId(students.size() + 1);
         students.add(student);
     }
