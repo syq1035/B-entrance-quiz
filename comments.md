@@ -1,4 +1,6 @@
 ### 完成度：
+* 缺少专门查看group的api
+
 __Details:__
 - \- StudentController.java:37 bug，新增学员无法进行分组操作
 
